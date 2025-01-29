@@ -1,4 +1,4 @@
-# contador_de_pessoas
+# Contador de Pessoas
 
 App para contar a quantidade de pessoas que entram em um estabelecimento, controlando sua lotação.
 
