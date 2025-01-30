@@ -62,6 +62,28 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  confirmAlert() {
+    return showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text("Tem certeza?"),
+        content: Text("Está ação irá zerar ambos contadores."),
+        actions: [
+          TextButton(
+              onPressed: () => Navigator.of(context).pop(false),
+              child: Text("Cancelar", style: TextStyle(color: Colors.grey))),
+          TextButton(
+            onPressed: () => {
+              reset(),
+              Navigator.of(context).pop(false),
+            },
+            child: Text("Confirmar", style: TextStyle(color: Colors.red)),
+          )
+        ],
+      ),
+    );
+  }
+
   bool get isEmpty => count == 0;
 
   bool get isFull => count == capacity;
@@ -155,7 +177,7 @@ class _HomePageState extends State<HomePage> {
             ),
             SizedBox(height: 32),
             TextButton(
-              onPressed: reset,
+              onPressed: confirmAlert,
               style: TextButton.styleFrom(
                 backgroundColor: Colors.redAccent,
                 foregroundColor: Colors.black,
