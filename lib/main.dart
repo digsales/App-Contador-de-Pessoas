@@ -29,6 +29,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int count = 0;
+  int inTotal = 0; // Total de clientes do dia
   int capacity = 15; // Altere a capacidade do ambiente
 
   void decrement() {
@@ -46,6 +47,7 @@ class _HomePageState extends State<HomePage> {
     if (count < capacity) {
       setState(() {
         count++;
+        inTotal++;
       });
       print(count);
     } else {
@@ -53,7 +55,15 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
+  void reset() {
+    setState(() {
+      count = 0;
+      inTotal = 0;
+    });
+  }
+
   bool get isEmpty => count == 0;
+
   bool get isFull => count == capacity;
 
   @override
@@ -70,7 +80,24 @@ class _HomePageState extends State<HomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              isFull ? "Lotado!" : "Pode entrar!",
+              "Total de clientes:",
+              style: TextStyle(
+                fontSize: 30,
+                color: Colors.white,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+            SizedBox(height: 32),
+            Text(
+              "$inTotal",
+              style: TextStyle(
+                fontSize: 100,
+                color: Colors.white,
+              ),
+            ),
+            SizedBox(height: 32),
+            Text(
+              isFull ? "Lotado!" : "Clientes no ambiente:",
               style: TextStyle(
                 fontSize: 30,
                 color: isFull ? Colors.red : Colors.white,
@@ -125,6 +152,24 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               ],
+            ),
+            SizedBox(height: 32),
+            TextButton(
+              onPressed: reset,
+              style: TextButton.styleFrom(
+                backgroundColor: Colors.redAccent,
+                foregroundColor: Colors.black,
+                fixedSize: const Size(100, 20),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(50)),
+              ),
+              child: Text(
+                "ZERAR",
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 16,
+                ),
+              ),
             ),
           ],
         ),
