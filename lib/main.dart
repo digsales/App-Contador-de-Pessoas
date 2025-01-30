@@ -18,15 +18,26 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class HomePage extends StatelessWidget {
+// stful para criar automaticamente statefulwidget
+
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  int count = 0;
+
   void decrement() {
-    print("-1");
+    count--;
+    print(count);
   }
 
   void increment() {
-    print("+1");
+    count++;
+    print(count);
   }
 
   @override
@@ -53,7 +64,7 @@ class HomePage extends StatelessWidget {
             ),
             SizedBox(height: 32),
             Text(
-              "0",
+              "$count",
               style: TextStyle(
                 fontSize: 100,
                 color: Colors.white,
