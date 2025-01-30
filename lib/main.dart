@@ -67,7 +67,7 @@ class _HomePageState extends State<HomePage> {
       context: context,
       builder: (context) => AlertDialog(
         title: Text("Tem certeza?"),
-        content: Text("Está ação irá zerar ambos contadores."),
+        content: Text("Esta ação irá zerar ambos contadores e não pode ser desfeita."),
         actions: [
           TextButton(
               onPressed: () => Navigator.of(context).pop(false),
