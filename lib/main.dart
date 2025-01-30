@@ -29,21 +29,36 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int count = 0;
+  int capacity = 15; // Altere a capacidade do ambiente
 
   void decrement() {
-    count--;
-    print(count);
+    if (count > 0) {
+      setState(() {
+        count--;
+      });
+      print(count);
+    } else {
+      print("Já está zerado!");
+    }
   }
 
   void increment() {
-    count++;
-    print(count);
+    if (count < capacity) {
+      setState(() {
+        count++;
+      });
+      print(count);
+    } else {
+      print("Já está lotado!");
+    }
   }
+
+  bool get isEmpty => count == 0;
+  bool get isFull => count == capacity;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.deepPurpleAccent,
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
@@ -55,10 +70,10 @@ class _HomePageState extends State<HomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              "Pode entrar!",
+              isFull ? "Lotado!" : "Pode entrar!",
               style: TextStyle(
                 fontSize: 30,
-                color: Colors.white,
+                color: isFull ? Colors.red : Colors.white,
                 fontWeight: FontWeight.w700,
               ),
             ),
