@@ -11,9 +11,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: HomePage()
-      );
+    return MaterialApp(home: HomePage());
   }
 }
 
@@ -22,10 +20,51 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.deepPurpleAccent,
-      alignment: Alignment.center,
-      child: Text("Olá, mundo!"),
+    return Scaffold(
+      backgroundColor: Colors.deepPurpleAccent,
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            "Pode entrar!",
+            style: TextStyle(
+              fontSize: 30,
+              color: Colors.white,
+              fontWeight: FontWeight.w700,
+            ),
+          ),
+          Text(
+            "0",
+            style: TextStyle(
+              fontSize: 100,
+              color: Colors.white,
+            ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              TextButton(
+                onPressed: null,
+                child: Text(
+                  "Saiu",
+                  style: TextStyle(
+                    color: Colors.black
+                  )
+                ),
+              ),
+              TextButton(
+                onPressed: null,
+                child: Text(
+                    "Saiu",
+                    style: TextStyle(
+                        color: Colors.black
+                    )
+                ),
+              ),
+            ],
+          )
+        ],
+      ),
     );
   }
 }
