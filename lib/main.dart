@@ -56,17 +56,19 @@ class HomePage extends StatelessWidget {
                 child: Text(
                   "Saiu",
                   style: TextStyle(
-                    color: Colors.black
-                  )
+                    color: Colors.black,
+                    fontSize: 16,
+                  ),
                 ),
               ),
               TextButton(
                 onPressed: increment,
                 child: Text(
-                    "Entrou",
-                    style: TextStyle(
-                        color: Colors.black
-                    )
+                  "Entrou",
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 16,
+                  ),
                 ),
               ),
             ],
