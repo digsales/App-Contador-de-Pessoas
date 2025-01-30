@@ -4,7 +4,7 @@ void main() {
   runApp(MyApp());
 }
 
-// stless para criar automaticamente
+// stless para criar automaticamente statelesswidget
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
