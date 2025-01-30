@@ -4,6 +4,8 @@ void main() {
   runApp(MyApp());
 }
 
+// stless para criar automaticamente
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -18,5 +20,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-// stless para criar automaticamente
