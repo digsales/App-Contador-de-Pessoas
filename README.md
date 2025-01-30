@@ -1,6 +1,6 @@
 # Contador de Pessoas
 
-App para contar a quantidade de pessoas que entram em um estabelecimento, controlando sua lotação.
+App para contar a quantidade de pessoas que entram em um estabelecimento, controlando sua lotação. É possível averiguar quantas pessoas estão no ambiente, o total de clientes no dia e também zerar a contagem.
 
 ## Getting Started
 
